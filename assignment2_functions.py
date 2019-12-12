@@ -211,16 +211,16 @@ def Writer(growth1, growth2, tMax, val2030_1, val2030_2, full_rsquare1, full_rsq
     # Set up the output
     outputs.append("The Selected SDG Indicator is Indicator 2.1.2: Prevalence of Undernourishment (%).\n\
 This indicator keeps track of the percentage of the population lacking critical micro- or macronutrients.\n\n")
-    outputs.append("Country\tChina\tIndia\n")
-    outputs.append("HDI:\t0.758\t0.647\n")
-    outputs.append("Growth Value:\t{0}\t{1}\n".format(growth1, growth2))
-    outputs.append("Indicator in {0}:\t{1}\t{2}\n".format(tMax, val2030_1, val2030_2))
-    outputs.append("Model Evaluation R2:\t{0}\t{1}\n".format(full_rsquare1, full_rsquare2))
-    outputs.append("Model Evaluation NMRSE:\t{0}\t{1}\n".format(full_nrmse1, full_nrmse2))
-    outputs.append("Model Evaluation PBIAS:\t{0}\t{1}\n".format(full_bias1, full_bias2))
-    outputs.append("{0}-fold Model Validation R2:\t{1}\t{2}\n".format(folds, fold_rsquare1, fold_rsquare2))
-    outputs.append("{0}-fold Model Validation NRMSE:\t{1}\t{2}\n".format(folds, fold_nrmse1, fold_nrmse2))
-    outputs.append("{0}-fold Model Validation PBIAS:\t{1}\t{2}\n".format(folds, fold_bias1, fold_bias2))
+    outputs.append("Country\t\t\t\tChina\tIndia\n")
+    outputs.append("HDI:\t\t\t\t0.758\t0.647\n")
+    outputs.append("Growth Value:\t\t\t{0:.2f}\t{1:.2f}\n".format(growth1, growth2))
+    outputs.append("Indicator in {0}:\t\t{1:.3f}\t{2:.3f}\n".format(tMax, val2030_1, val2030_2))
+    outputs.append("Model Evaluation R2:\t\t{0:.3f}\t{1:.3f}\n".format(full_rsquare1, full_rsquare2))
+    outputs.append("Model Evaluation NMRSE:\t\t{0:.3f}\t{1:.3f}\n".format(full_nrmse1, full_nrmse2))
+    outputs.append("Model Evaluation PBIAS:\t\t{0:.3f}\t{1:.3f}\n".format(full_bias1, full_bias2))
+    outputs.append("{0}-fold Model Validation R2:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_rsquare1, fold_rsquare2))
+    outputs.append("{0}-fold Model Validation NRMSE:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_nrmse1, fold_nrmse2))
+    outputs.append("{0}-fold Model Validation PBIAS:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_bias1, fold_bias2))
     
     # Create File:
     with open(write_file, 'w+') as newfile:
