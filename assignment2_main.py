@@ -17,7 +17,9 @@ def Wrapper(filename, country1, country2, indicator, tMax, folds, write_file):
             country1 (string): The name of the first country input.
             country2 (string): The name of the second country input.
             indicator (string): The indicator that has to be analyzed.
-            tMax (Integer): The final year for which to model towards.                  
+            tMax (integer): The final year for which to model towards. 
+            folds (integer): The number of folds to use for the k-fold validation.
+            write_file (string): The file which to write the outputs to.
     """
     # Setting the timespan to simulate
     timeline = np.arange(2000,tMax,0.1)
@@ -25,6 +27,10 @@ def Wrapper(filename, country1, country2, indicator, tMax, folds, write_file):
     # Importing and filtering data
     data = fun.Importer(filename)
     
+    # Saving description value
+    indicator_text = data["SeriesDescription"][1]
+    
+    # Filtering data
     obs1 = fun.FilterMaker(data, country1, indicator)
     obs2 = fun.FilterMaker(data, country2, indicator)
     
@@ -62,9 +68,9 @@ def Wrapper(filename, country1, country2, indicator, tMax, folds, write_file):
     fold_rsquare2, fold_nrmse2, fold_bias2 = fun.KValidator(obs2, folds)
     
     # Printing 
-    fun.Writer(growth1, growth2, tMax, val2030_1, val2030_2, full_rsquare1, full_rsquare2,\
-    full_nrmse1, full_nrmse2, full_bias1, full_bias2, folds, fold_rsquare1, fold_rsquare2,\
-    fold_nrmse1, fold_nrmse2, fold_bias1, fold_bias2, write_file)
+    fun.Writer(indicator, indicator_text, country1, country2, growth1, growth2, tMax, val2030_1, val2030_2, \
+    full_rsquare1, full_rsquare2, full_nrmse1, full_nrmse2, full_bias1, full_bias2, folds, fold_rsquare1, \
+    fold_rsquare2, fold_nrmse1, fold_nrmse2, fold_bias1, fold_bias2, write_file)
 
     
 

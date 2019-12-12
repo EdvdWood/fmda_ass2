@@ -1,5 +1,4 @@
-The Selected SDG Indicator is Indicator 2.1.2: Prevalence of Undernourishment (%).
-This indicator keeps track of the percentage of the population lacking critical micro- or macronutrients.
+The Selected SDG Indicator is Indicator Prevalence of undernourishment (%): Prevalence of undernourishment (%)
 
 Country				China	India
 HDI:				0.758	0.647
@@ -7,7 +6,7 @@ Growth Value:			-0.50	-0.23
 Indicator in 2030:		8.700	17.608
 Model Evaluation R2:		0.987	0.987
 Model Evaluation NMRSE:		0.183	0.183
-Model Evaluation PBIAS:		-2.967	-2.967
-5-fold Model Validation R2:	0.967	0.918
-5-fold Model Validation NRMSE:	0.929	1.195
-5-fold Model Validation PBIAS:	2.543	5.882
+Model Evaluation PBIAS (%):		-2.967	-2.967
+5-fold Model Validation R2:	0.972	0.714
+5-fold Model Validation NRMSE:	0.801	2.799
+5-fold Model Validation PBIAS (%):	0.177	9.552

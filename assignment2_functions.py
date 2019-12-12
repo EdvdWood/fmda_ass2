@@ -201,26 +201,25 @@ def KValidator(obs, folds):
     return rsquare_ave, nmrse_ave, bias_ave
 
 # Generating and writing output
-def Writer(growth1, growth2, tMax, val2030_1, val2030_2, full_rsquare1, full_rsquare2,\
-    full_nrmse1, full_nrmse2, full_bias1, full_bias2, folds, fold_rsquare1, fold_rsquare2,\
-    fold_nrmse1, fold_nrmse2, fold_bias1, fold_bias2, write_file):
+def Writer(indicator, indicator_text, country1, country2, growth1, growth2, tMax, val2030_1, val2030_2, \
+    full_rsquare1, full_rsquare2, full_nrmse1, full_nrmse2, full_bias1, full_bias2, folds, fold_rsquare1, \
+    fold_rsquare2, fold_nrmse1, fold_nrmse2, fold_bias1, fold_bias2, write_file):
     
     # Initialize output holder
     outputs = []
     
     # Set up the output
-    outputs.append("The Selected SDG Indicator is Indicator 2.1.2: Prevalence of Undernourishment (%).\n\
-This indicator keeps track of the percentage of the population lacking critical micro- or macronutrients.\n\n")
-    outputs.append("Country\t\t\t\tChina\tIndia\n")
-    outputs.append("HDI:\t\t\t\t0.758\t0.647\n")
+    outputs.append("The Selected SDG Indicator is Indicator {0}: {1}\n\n".format(indicator, indicator_text))
+    outputs.append("Country\t\t\t\t{0}\t{1}\n".format(country1, country2))
+    outputs.append("HDI:\t\t\t\t0.758\t0.647\n") #This would have to be in a datafile to make the code more flexible.
     outputs.append("Growth Value:\t\t\t{0:.2f}\t{1:.2f}\n".format(growth1, growth2))
     outputs.append("Indicator in {0}:\t\t{1:.3f}\t{2:.3f}\n".format(tMax, val2030_1, val2030_2))
     outputs.append("Model Evaluation R2:\t\t{0:.3f}\t{1:.3f}\n".format(full_rsquare1, full_rsquare2))
     outputs.append("Model Evaluation NMRSE:\t\t{0:.3f}\t{1:.3f}\n".format(full_nrmse1, full_nrmse2))
-    outputs.append("Model Evaluation PBIAS:\t\t{0:.3f}\t{1:.3f}\n".format(full_bias1, full_bias2))
+    outputs.append("Model Evaluation PBIAS (%):\t{0:.3f}\t{1:.3f}\n".format(full_bias1, full_bias2))
     outputs.append("{0}-fold Model Validation R2:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_rsquare1, fold_rsquare2))
     outputs.append("{0}-fold Model Validation NRMSE:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_nrmse1, fold_nrmse2))
-    outputs.append("{0}-fold Model Validation PBIAS:\t{1:.3f}\t{2:.3f}\n".format(folds, fold_bias1, fold_bias2))
+    outputs.append("{0}-fold Model Validation PBIAS (%):{1:.3f}\t{2:.3f}\n".format(folds, fold_bias1, fold_bias2))
     
     # Create File:
     with open(write_file, 'w+') as newfile:
